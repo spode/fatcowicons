@@ -43,6 +43,7 @@
 		<input
 			bind:this={inputElement}
 			type="text"
+			placeholder="search icon..."
 			oninput={(e) => {
 				clearTimeout(timeout);
 

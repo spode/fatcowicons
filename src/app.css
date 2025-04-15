@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+
+html,
+body {
+    @apply h-full antialiased
+}

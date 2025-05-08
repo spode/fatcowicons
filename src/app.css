@@ -1,8 +1,15 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 
-
 html,
 body {
-    @apply h-full antialiased
+    @apply h-full antialiased dark:bg-gray-950 dark:text-gray-100 dark:scheme-dark
+}
+
+@media (prefers-color-scheme: dark) {
+
+    html {
+        scrollbar-color: var(--color-gray-500) var(--color-gray-900);
+    }
+
 }

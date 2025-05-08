@@ -2,10 +2,6 @@
 	import { onMount } from 'svelte';
 
 	let { data } = $props();
-	onMount(() => {
-		// $inspect(data);
-		// console.log('hello');
-	});
 
 	let inputText = $state('');
 
@@ -41,6 +37,7 @@
 		<p>loading the images!</p>
 	{:then icons}
 		<input
+			class="dark:bg-gray-800 dark:text-white"
 			bind:this={inputElement}
 			type="text"
 			placeholder="search icon..."
@@ -53,18 +50,21 @@
 			}}
 		/>
 		<div
+			style="scrollbar-gutter: stable;"
 			class="grid h-full grid-cols-[repeat(auto-fit,minmax(min(100px,100%),1fr))] gap-2 overflow-auto"
 		>
 			{#each icons as module}
 				<a download={module.path.split('/').pop()} href={module.src.img.src}>
-					<div class="flex flex-col items-center rounded-xl p-2 hover:bg-red-200">
+					<div
+						class="flex flex-col items-center rounded-xl p-2 hover:bg-red-200 dark:hover:bg-gray-700"
+					>
 						<img
 							style="image-rendering:pixelated"
 							class="h-auto w-[64px]"
 							src={module.src.img.src}
 							alt="some alt text"
 						/>
-						<p class="line-clamp-2 text-center text-xs antialiased">
+						<p class="line-clamp-2 text-center text-xs antialiased lg:text-sm">
 							{module.path.split('/').pop()?.replace('.png', '').replaceAll('_', ' ')}
 						</p>
 					</div>
@@ -73,10 +73,3 @@
 		</div>
 	{/await}
 </main>
-
-<style>
-	/* img {
-		width: var(--size);
-		height: auto;
-	} */
-</style>

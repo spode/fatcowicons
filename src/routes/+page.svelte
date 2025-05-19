@@ -32,12 +32,12 @@
 	let inputElement = $state();
 </script>
 
-<main class="flex h-full flex-col">
+<main class="flex flex-1 flex-col overflow-auto">
 	{#await filteredIcons}
 		<p>loading the images!</p>
 	{:then icons}
 		<input
-			class="dark:bg-gray-800 dark:text-white"
+			class="m-2 rounded-xl dark:bg-gray-800 dark:text-white"
 			bind:this={inputElement}
 			type="text"
 			placeholder="search icon..."
@@ -54,7 +54,7 @@
 			class="grid h-full grid-cols-[repeat(auto-fit,minmax(min(100px,100%),1fr))] gap-2 overflow-auto"
 		>
 			{#each icons as module}
-				<a download={module.path.split('/').pop()} href={module.src.img.src}>
+				<a download={module.path.split('/').pop().split()} href={module.src.img.src}>
 					<div
 						class="flex flex-col items-center rounded-xl p-2 hover:bg-red-200 dark:hover:bg-gray-700"
 					>

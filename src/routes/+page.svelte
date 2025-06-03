@@ -39,7 +39,7 @@
 		<input
 			class="m-2 rounded-xl dark:bg-gray-800 dark:text-white"
 			bind:this={inputElement}
-			type="text"
+			type="search"
 			placeholder="search icon..."
 			oninput={(e) => {
 				clearTimeout(timeout);
@@ -51,7 +51,7 @@
 		/>
 		<div
 			style="scrollbar-gutter: stable;"
-			class="grid h-full grid-cols-[repeat(auto-fit,minmax(min(100px,100%),1fr))] gap-2 overflow-auto"
+			class="grid h-full grid-cols-[repeat(auto-fit,minmax(min(100px,100%),1fr))] content-start gap-2 overflow-auto"
 		>
 			{#each icons as module}
 				<a download={module.path.split('/').pop().split()} href={module.src.img.src}>

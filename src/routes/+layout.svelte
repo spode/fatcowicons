@@ -13,4 +13,4 @@
 		</a>
 	</footer>
 </div>
-<svelte:head><title>Icons by Marcis Gasuns</title></svelte:head>
+<svelte:head><title>Icon Gallery</title></svelte:head>
